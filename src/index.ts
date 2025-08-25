@@ -9,7 +9,7 @@ import type { FontOptions } from 'svg2ttf';
 import type { Config } from 'svgo';
 import { log } from './log.js';
 import { generateIconsSource, generateReactIcons, generateReactNativeIcons } from './generate.js';
-import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymbol, copyTemplate, type CSSOptions, createHTML, createTypescript, type TypescriptOptions } from './utils.js';
+import { createSVG, createTTF, createEOT, createWOFF, createWOFF2, createSvgSymbol, copyTemplate, type CSSOptions, createHTML, createTypescript, type TypescriptOptions, removeOrdinalNumber } from './utils.js';
 import { generateFontFaceCSS, getDefaultOptions } from './utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -283,7 +283,7 @@ export default async (options: SvgToFontOptions = {}) => {
     Object.keys(unicodeObject).forEach((name, index, self) => {
       if (!infoData[name]) infoData[name] = {};
       const _code = unicodeObject[name];
-      let symbolName = options.classNamePrefix + options.symbolNameDelimiter + name
+      let symbolName = options.classNamePrefix + options.symbolNameDelimiter + removeOrdinalNumber(name, options.symbolNameDelimiter); 
       let iconPart = symbolName + '">';
       let encodedCodes: string | number = _code.codePointAt(0);
 

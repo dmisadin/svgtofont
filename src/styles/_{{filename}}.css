@@ -2,9 +2,10 @@
 {{fontFamily}}
 }
 
-{% if nameAsUnicode %}.{{prefix}}{% else %}[class^="{{prefix}}-"], [class*=" {{prefix}}-"]{% endif %} {
+{% if nameAsUnicode %}.{{prefix}}{% else %}[class^="{{prefix}}-"]:before, [class*=" {{prefix}}-"]:before{% endif %} {
   font-family: '{{fontname}}' !important;{{fontSize}}
   font-style:normal;
+  vertical-align: middle;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

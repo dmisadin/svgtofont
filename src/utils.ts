@@ -343,7 +343,7 @@ export function generateFontFaceCSS(fontName: string, cssPath: string, timestamp
     { ext: 'woff2', format: 'woff2' },
     { ext: 'woff', format: 'woff' },
     { ext: 'ttf', format: 'truetype' },
-    { ext: 'svg', format: 'svg' }
+    //{ ext: 'svg', format: 'svg' }
   ];
   let cssString = `  font-family: "${fontName}";\n`;
   if (!excludeFormat.includes('eot')) {
@@ -375,3 +375,26 @@ export const getDefaultOptions = (options: SvgToFontOptions): SvgToFontOptions =
     symbolNameDelimiter: '-',
   }, options);
 };
+
+
+/**
+ * 
+ * @param name File name that will get it's ordinal number at the start removed
+ * @param delimiter Delimiter used to separate words in name
+ * @returns Transformed name without number at the start
+ * 
+ * @example
+ * ```js
+ * removeOrdinalNumber('12-social-media-icon', '-') //'social-media-icon'
+ * ```
+ */
+export function removeOrdinalNumber(name: string, delimiter = '-') {
+    const isNumberExpression = /^-?\d+(\.\d+)?$/;
+    let nameParts = name.split(delimiter);
+    let firstPart = nameParts.shift();
+
+    if (!isNumberExpression.test(firstPart))
+        return name;
+
+    return nameParts.join(delimiter);
+}
