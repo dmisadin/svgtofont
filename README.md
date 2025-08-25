@@ -1,18 +1,3 @@
-## Getting started with *SwiftReach Icons Font*
-
-1. Install all packages and transpile TS code to JS:
-```
-npm install
-```
-2. [Optional] Add SVG icons to ```./svg``` directory (recommended: use naming convention with ordinal number, e.g. ```042-icon-name```).
-3. Run code to generate icon font files:
-```
-npm start
-```
-4. Generated font files are located in ```./fonts``` directory.
-
----
-
 [Free Font](https://github.com/jaywcjlove/free-font)
 
 <p align="center">

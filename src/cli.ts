@@ -12,7 +12,6 @@ type ArgvResult = Arguments<{
   sources: string;
   output: string;
   fontName: string;
-  useCSSVars: boolean;
 }>
 
 const argv = yargs(hideBin(process.argv))
@@ -45,9 +44,8 @@ svgtofont({
   dist: outputPath, // output path
   // emptyDist: true, // Clear output directory contents
   fontName: (argv.fontName) || "svgfont", // font name
-  useCSSVars: argv.useCSSVars,
   css: true, // Create CSS files.
-  outSVGReact: false,
+  outSVGReact: true,
   outSVGReactNative: false,
   outSVGPath: true,
   svgicons2svgfont: {

@@ -22,7 +22,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "start": "node lib/cli.js --sources ./svg --output ./fonts --fontName fbt-icons --useCSSVars",
+    "start": "node lib/index.js",
     "watch": "tsbb watch src/*.ts",
     "build": "tsbb build src/*.ts",
     "example": "node examples/example/index.mjs",
